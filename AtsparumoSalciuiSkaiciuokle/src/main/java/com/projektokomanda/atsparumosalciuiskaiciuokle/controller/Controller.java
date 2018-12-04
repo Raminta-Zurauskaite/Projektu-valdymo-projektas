@@ -7,9 +7,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.projektokomanda.atsparumosalciuiskaiciuokle.calculator.Calculator;
 import com.projektokomanda.atsparumosalciuiskaiciuokle.model.Data;
 import com.projektokomanda.atsparumosalciuiskaiciuokle.model.Results;
-import com.projektokomanda.atsparumosalciuiskaiciuokle.service.Service;
 
 @RestController
 @RequestMapping("api")
@@ -19,15 +19,15 @@ import com.projektokomanda.atsparumosalciuiskaiciuokle.service.Service;
 public class Controller {
 	
 	@Autowired
-	Service service;
+	Calculator calculator;
 
 	@RequestMapping(method = RequestMethod.POST, value = "/calculate")
 	public void calculate(@RequestBody Data data) {
-		service.calculate(data);
+		calculator.calculate(data);
 	}
 	
 	@RequestMapping(method = RequestMethod.GET, value = "/results")
 	public Results getResults() {
-		return service.getResults();
+		return calculator.getResults();
 	}
 }
