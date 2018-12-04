@@ -10,7 +10,7 @@ public class Calculator {
 	public void calculate(Data data) {
 		results.setS(data.getAa() * data.getBa());
 		
-		if(data.getM3() == 0) {
+		if(data.getM3() == 0.0) {
 			results.setV(((data.getAa() + data.getAv()) / 2) * ((data.getBa() + data.getBv()) / 2) * ((data.getH1() + data.getH2()) / 2));
 		}
 		else {

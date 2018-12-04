@@ -184,5 +184,4 @@ public class Data {
 				+ ", h1=" + h1 + ", h2=" + h2 + "]";
 	}
 	
-	
 }

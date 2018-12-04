@@ -21,7 +21,6 @@ public class Controller {
 
 	@RequestMapping(method = RequestMethod.POST, value = "/calculate")
 	public Data calculate(@RequestBody Data data) {
-		System.out.println(data.toString());
 		calculator.calculate(data);
 		return data;
 	}

@@ -47,9 +47,9 @@ class App extends Component {
       h2: parseFloat(this.state.h2)
     }
     
-    console.log(data)
-    
     axios.post("http://localhost:8080/api/calculate", data)	
+    
+    setTimeout(function(){}, 3000)
     
     axios.get("http://localhost:8080/api/results")
     
