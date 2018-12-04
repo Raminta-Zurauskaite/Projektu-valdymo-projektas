@@ -18,7 +18,6 @@ import com.projektokomanda.atsparumosalciuiskaiciuokle.model.Results;
 
 public class Controller {
 	
-	@Autowired
 	Calculator calculator;
 
 	@RequestMapping(method = RequestMethod.POST, value = "/calculate")
