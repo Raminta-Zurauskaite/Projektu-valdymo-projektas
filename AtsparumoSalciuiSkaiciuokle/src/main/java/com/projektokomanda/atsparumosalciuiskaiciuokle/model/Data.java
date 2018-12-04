@@ -52,6 +52,10 @@ public class Data {
 		this.h1 = h1;
 		this.h2 = h2;
 	}
+	
+	public Data() {
+		
+	}
 
 	public double getM0() {
 		return m0;
@@ -172,5 +176,13 @@ public class Data {
 	public void setH2(double h2) {
 		this.h2 = h2;
 	}
+
+	@Override
+	public String toString() {
+		return "Data [m0=" + m0 + ", m1=" + m1 + ", m2=" + m2 + ", m3=" + m3 + ", m4=" + m4 + ", m5=" + m5 + ", m6="
+				+ m6 + ", hmin=" + hmin + ", hmax=" + hmax + ", aa=" + aa + ", av=" + av + ", ba=" + ba + ", bv=" + bv
+				+ ", h1=" + h1 + ", h2=" + h2 + "]";
+	}
+	
 	
 }

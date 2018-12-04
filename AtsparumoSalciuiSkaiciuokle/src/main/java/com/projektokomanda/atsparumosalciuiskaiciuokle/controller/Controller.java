@@ -1,6 +1,5 @@
 package com.projektokomanda.atsparumosalciuiskaiciuokle.controller;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -18,11 +17,13 @@ import com.projektokomanda.atsparumosalciuiskaiciuokle.model.Results;
 
 public class Controller {
 	
-	Calculator calculator;
+	private Calculator calculator = new Calculator();
 
 	@RequestMapping(method = RequestMethod.POST, value = "/calculate")
-	public void calculate(@RequestBody Data data) {
+	public Data calculate(@RequestBody Data data) {
+		System.out.println(data.toString());
 		calculator.calculate(data);
+		return data;
 	}
 	
 	@RequestMapping(method = RequestMethod.GET, value = "/results")

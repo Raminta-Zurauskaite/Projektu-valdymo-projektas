@@ -7,21 +7,21 @@ class App extends Component {
     super()
 
     this.state = {
-      m0: null,
-      m1: null,
-      m2: null,
-      m3: null,
-      m4: null,
-      m5: null,
-      m6: null,
-      hmin: null,
-      hmax: null,
-      aa: null,
-      av: null,
-      ba: null,
-      bv: null,
-      h1: null,
-      h2: null,
+      m0: '',
+      m1: '',
+      m2: '',
+      m3: '',
+      m4: '',
+      m5: '',
+      m6: '',
+      hmin: '',
+      hmax: '',
+      aa: '',
+      av: '',
+      ba: '',
+      bv: '',
+      h1: '',
+      h2: '',
       taisyklinga: false
     }
   }
@@ -30,23 +30,29 @@ class App extends Component {
     event.preventDefault();
 
     const data = {
-      m0: this.state.m0,
-      m1: this.state.m1,
-      m2: this.state.m2,
-      m3: this.state.m3,
-      m4: this.state.m4,
-      m5: this.state.m5,
-      m6: this.state.m6,
-      hmin: this.state.hmin,
-      hmax: this.state.hmax,
-      aa: this.state.aa,
-      av: this.state.av,
-      ba: this.state.ba,
-      bv: this.state.bv,
-      h1: this.state.h1,
-      h2: this.state.h2
+      m0: parseFloat(this.state.m0),
+      m1: parseFloat(this.state.m1),
+      m2: parseFloat(this.state.m2),
+      m3: parseFloat(this.state.m3),
+      m4: parseFloat(this.state.m4),
+      m5: parseFloat(this.state.m5),
+      m6: parseFloat(this.state.m6),
+      hmin: parseFloat(this.state.hmin),
+      hmax: parseFloat(this.state.hmax),
+      aa: parseFloat(this.state.aa),
+      av: parseFloat(this.state.av),
+      ba: parseFloat(this.state.ba),
+      bv: parseFloat(this.state.bv),
+      h1: parseFloat(this.state.h1),
+      h2: parseFloat(this.state.h2)
     }
-    axios.post("http://localhost:8080/api/calculate", data)
+    
+    console.log(data)
+    
+    axios.post("http://localhost:8080/api/calculate", data)	
+    
+    axios.get("http://localhost:8080/api/results")
+    
   }
 
   handleChangeFor = (property) => (event) => {
