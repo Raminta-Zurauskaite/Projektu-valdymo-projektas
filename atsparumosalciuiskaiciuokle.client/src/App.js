@@ -100,7 +100,7 @@ class App extends Component {
               <label>hmin mm:</label>
               <input type="text"/>
             </div>
-          <button>Skaiciuoti</button>
+          <button onClick={this.submit}>Skaiciuoti</button>
 
           <div>
           Rezultatai placeholder.
