@@ -22,7 +22,8 @@ class App extends Component {
       bv: '',
       h1: '',
       h2: '',
-      taisyklinga: false
+      taisyklinga: false,
+      errors: {}
     }
   }
 
@@ -48,10 +49,19 @@ class App extends Component {
     }
     
     axios.post("http://localhost:8080/api/calculate", data)	
+    	.then( this.setState({ errors: {} }))
+    	.then((response) => {
+    		 setTimeout(function(){}, 3000)
+    		    
+    		 axios.get("http://localhost:8080/api/results")
+    	})
+    	.catch((error) => {
+    		let errors = {};
+    		errors = error.response.data
+    		this.setState({ errors: errors })
+    	})
     
-    setTimeout(function(){}, 3000)
-    
-    axios.get("http://localhost:8080/api/results")
+   
     
   }
 
@@ -70,6 +80,7 @@ class App extends Component {
                 <input type="checkbox" checked="checked"/>
               </label>
               </div>
+              <span style = {{color: "red"}}>{this.state.errors.m0}</span>
               <label>m0 g:</label>
               <input 
                 type="text"
@@ -83,8 +94,10 @@ class App extends Component {
                 value={this.state.hmax}
                 onChange={this.handleChangeFor("hmax")}
               />
+              <span style = {{color: "red"}}>{this.state.errors.hmax}</span>
             </div>
             <div>
+              <span style = {{color: "red"}}>{this.state.errors.m1}</span>
               <label>m1 g:</label>
               <input 
                 type="text"
@@ -99,8 +112,10 @@ class App extends Component {
                 value={this.state.aa}
                 onChange={this.handleChangeFor("aa")}
               />
+              <span style = {{color: "red"}}>{this.state.errors.aa}</span>
             </div>
             <div>
+              <span style = {{color: "red"}}>{this.state.errors.m2}</span>
               <label>m2 g:</label>
               <input 
                 type="text"
@@ -115,8 +130,10 @@ class App extends Component {
                 value={this.state.av}
                 onChange={this.handleChangeFor("av")}
               />
+              <span style = {{color: "red"}}>{this.state.errors.av}</span>
             </div>
             <div>
+              <span style = {{color: "red"}}>{this.state.errors.m3}</span>
               <label>m3 g:</label>
               <input 
                 type="text"
@@ -131,8 +148,10 @@ class App extends Component {
                 value={this.state.ba}
                 onChange={this.handleChangeFor("ba")}
               />
+              <span style = {{color: "red"}}>{this.state.errors.ba}</span>
             </div>
             <div>
+              <span style = {{color: "red"}}>{this.state.errors.m4}</span>
               <label>m4 g:</label>
               <input 
                 type="text"
@@ -147,8 +166,10 @@ class App extends Component {
                 value={this.state.bv}
                 onChange={this.handleChangeFor("bv")}
               />
+              <span style = {{color: "red"}}>{this.state.errors.bv}</span>
             </div>
             <div>
+              <span style = {{color: "red"}}>{this.state.errors.m5}</span>
               <label>m5 g:</label>
               <input 
                 type="text"
@@ -163,8 +184,10 @@ class App extends Component {
                 value={this.state.h1}
                 onChange={this.handleChangeFor("h1")}
               />
+              <span style = {{color: "red"}}>{this.state.errors.h1}</span>
             </div>
             <div>
+              <span style = {{color: "red"}}>{this.state.errors.m6}</span>
               <label>m6 g:</label>
               <input 
                 type="text"
@@ -179,6 +202,7 @@ class App extends Component {
                 value={this.state.h2}
                 onChange={this.handleChangeFor("h2")}
               />
+              <span style = {{color: "red"}}>{this.state.errors.h2}</span>
             </div>
             <div>
               <label>hmin mm:</label>
@@ -188,6 +212,9 @@ class App extends Component {
                 value={this.state.hmin}
                 onChange={this.handleChangeFor("hmin")}
               />
+            </div>
+            <div>
+              <span style = {{color: "red"}}>{this.state.errors.hmin}</span>
             </div>
           <button onClick={this.submit}>Skaiciuoti</button>
 

@@ -1,8 +1,11 @@
 package com.projektokomanda.atsparumosalciuiskaiciuokle.calculator;
 
+import org.springframework.stereotype.Component;
+
 import com.projektokomanda.atsparumosalciuiskaiciuokle.model.Data;
 import com.projektokomanda.atsparumosalciuiskaiciuokle.model.Results;
 
+@Component
 public class Calculator {
 	
 	private Results results = new Results();
