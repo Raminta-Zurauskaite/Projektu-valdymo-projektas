@@ -23,7 +23,22 @@ class App extends Component {
       h1: '',
       h2: '',
       taisyklinga: false,
-      errors: {}
+      errors: {},
+      results: [{
+        s: '',
+        v: '',
+        we:'',
+        wr:'',
+        n:'',
+        r:'',
+        d:'',
+        g1:'',
+        gg1:'',
+        gg2:'',
+        fre1:'',
+        fre2:'',
+        ti:''
+      }]
     }
   }
 
@@ -48,6 +63,11 @@ class App extends Component {
       h2: parseFloat(this.state.h2)
     }
     
+    axios.get("http://localhost:8080/api/calculate")
+    .then((response)=>{
+      this.setState({results: response.data})
+    })
+
     axios.post("http://localhost:8080/api/calculate", data)	
     	.then( this.setState({ errors: {} }))
     	.then((response) => {
@@ -77,7 +97,7 @@ class App extends Component {
             <div>
               <div>
               <label>Bandinys taisyklingos formos
-                <input type="checkbox" checked="checked"/>
+                <input type="checkbox" id="forma" value="taisyklinga"/>
               </label>
               </div>
               <span style = {{color: "red"}}>{this.state.errors.m0}</span>
@@ -219,7 +239,22 @@ class App extends Component {
           <button onClick={this.submit}>Skaiciuoti</button>
 
           <div>
-          Rezultatai placeholder.
+          Rezultatai:
+          <div>
+          {this.state.results.s}
+          {this.state.results.v}
+          {this.state.results.we}
+          {this.state.results.wr}
+          {this.state.results.n}
+          {this.state.results.r}
+          {this.state.results.d}
+          {this.state.results.g1}
+          {this.state.results.gg1}
+          {this.state.results.gg2}
+          {this.state.results.fre1}
+          {this.state.results.fre2}
+          {this.state.results.ti}
+          </div>
           </div>
   
           </form>
