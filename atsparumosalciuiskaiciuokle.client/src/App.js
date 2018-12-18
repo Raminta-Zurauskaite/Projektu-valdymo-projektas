@@ -239,19 +239,19 @@ class App extends Component {
           <div>
           Rezultatai:
           <div>
-          {this.state.results.s}<br/>
-          {this.state.results.v}<br/>
-          {this.state.results.we}<br/>
-          {this.state.results.wr}<br/>
-          {this.state.results.n}<br/>
-          {this.state.results.r}<br/>
-          {this.state.results.d}<br/>
-          {this.state.results.g1}<br/>
-          {this.state.results.gg1}<br/>
-          {this.state.results.gg2}<br/>
-          {this.state.results.fre1}<br/>
-          {this.state.results.fre2}<br/>
-          {this.state.results.ti}
+          <label>S, cm^2: </label>{this.state.results.s}<br/>
+          <label>V, cm^3: </label>{this.state.results.v}<br/>
+          <label>WE, %: </label>{this.state.results.we}<br/>
+          <label>WR, %: </label>{this.state.results.wr}<br/>
+          <label>N: </label>{this.state.results.n}<br/>
+          <label>R, %: </label>{this.state.results.r}<br/>
+          <label>D: </label>{this.state.results.d}<br/>
+          <label>g1, g/cm^2: </label>{this.state.results.g1}<br/>
+          <label>G1, g/cm^2: </label>{this.state.results.gg1}<br/>
+          <label>G2, g/cm^2: </label>{this.state.results.gg2}<br/>
+          <label>FRE1: </label>{this.state.results.fre1}<br/>
+          <label>FRE2: </label>{this.state.results.fre2}<br/>
+          <label>Salygiskai salti sesonai: </label>{this.state.results.ti}
           </div>
           </div>
   
