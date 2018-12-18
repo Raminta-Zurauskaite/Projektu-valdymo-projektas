@@ -62,11 +62,6 @@ class App extends Component {
       h1: parseFloat(this.state.h1),
       h2: parseFloat(this.state.h2)
     }
-    
-    axios.get("http://localhost:8080/api/calculate")
-    .then((response)=>{
-      this.setState({results: response.data})
-    })
 
     axios.post("http://localhost:8080/api/calculate", data)	
     	.then( this.setState({ errors: {} }))
@@ -74,6 +69,9 @@ class App extends Component {
     		 setTimeout(function(){}, 3000)
     		    
     		 axios.get("http://localhost:8080/api/results")
+    		 	.then((response)=>{
+    		 		this.setState({results: response.data})
+    		 	})
     	})
     	.catch((error) => {
     		let errors = {};
@@ -241,18 +239,18 @@ class App extends Component {
           <div>
           Rezultatai:
           <div>
-          {this.state.results.s}
-          {this.state.results.v}
-          {this.state.results.we}
-          {this.state.results.wr}
-          {this.state.results.n}
-          {this.state.results.r}
-          {this.state.results.d}
-          {this.state.results.g1}
-          {this.state.results.gg1}
-          {this.state.results.gg2}
-          {this.state.results.fre1}
-          {this.state.results.fre2}
+          {this.state.results.s}<br/>
+          {this.state.results.v}<br/>
+          {this.state.results.we}<br/>
+          {this.state.results.wr}<br/>
+          {this.state.results.n}<br/>
+          {this.state.results.r}<br/>
+          {this.state.results.d}<br/>
+          {this.state.results.g1}<br/>
+          {this.state.results.gg1}<br/>
+          {this.state.results.gg2}<br/>
+          {this.state.results.fre1}<br/>
+          {this.state.results.fre2}<br/>
           {this.state.results.ti}
           </div>
           </div>
